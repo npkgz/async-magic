@@ -1,7 +1,7 @@
 async-magic
 =========================
 
-A pure promised based, async toolbox for Node.js **>=7.6**. Designed to work with latest **ES2017** features like `await` and `async function`
+Promises FTW! A pure promised based, async toolbox for Node.js **>=7.6**.
 
 ```
 yarn add async-magic --save
@@ -10,10 +10,9 @@ yarn add async-magic --save
 Features
 ------------------------------
 
-* Designed to run with the pure power of native `Promise`, `await` and `async function`
 * Convert callback based functions into promised based once (with named functions)
+* Designed to run with the pure power of native `Promise`, `await` and `async function`
 * Standalone, no external dependencies required
-* Targeted to use with most modern Node.js version which supports `await` and `async function` nativly
 * No backward compatibility layer
 
 API

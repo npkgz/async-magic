@@ -1,0 +1,29 @@
+{
+  "name": "async-magic",
+  "version": "1.0.0",
+  "author": "Andi Dittrich (https://andidittrich.de)",
+  "license": "MIT",
+  "homepage": "https://github.com/AndiDittrich/Node.async-magic",
+  "bugs": "https://github.com/AndiDittrich/Node.async-magic/issues",
+  "repository": "AndiDittrich/Node.async-magic",
+  "description": "Advanced Filesystem Utilities and promisified fs base.",
+  "keywords": [
+    "async",
+    "promise",
+    "promisify",
+    "es2017",
+    "await"
+  ],
+  "files": [
+    "lib",
+    "CHANGED.md",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "main": "async-magic.js",
+  "bin": {},
+  "preferGlobal": false,
+  "engines": {
+    "node": ">=7.6"
+  }
+}

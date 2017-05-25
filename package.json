@@ -1,6 +1,6 @@
 {
   "name": "async-magic",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Andi Dittrich (https://andidittrich.de)",
   "license": "MIT",
   "homepage": "https://github.com/AndiDittrich/Node.async-magic",
@@ -25,5 +25,11 @@
   "preferGlobal": false,
   "engines": {
     "node": ">=7.6"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2"
   }
 }

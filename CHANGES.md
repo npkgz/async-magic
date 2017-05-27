@@ -1,3 +1,8 @@
+### 1.2.0 ###
+* Added: `.wait` function as alias of [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+* Added: `.PromiseResolver` to queue a promised function with given arguments for execution
+* Added: `.parallel` function to execute multiple `PromiseResolver` in parallel with given task limit
+
 ### 1.1.0 ###
 * Added: Mocha based Testcases
 

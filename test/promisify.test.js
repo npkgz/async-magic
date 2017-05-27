@@ -22,7 +22,8 @@ function myTestInternalError(x, cb){
     cb(new Error('Custom Error'));
 }
 
-describe('::promisify', function(){
+// promisification tests upon fs module
+describe('promisify', function(){
 
     it('should return a function', function(){
         const testFn = _asyncMagic.promisify(_fs.stat);

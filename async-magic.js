@@ -4,5 +4,8 @@ let _api = {};
 // assign methods
 _api.promisify = require('./lib/promisify');
 _api.promisifyAll = require('./lib/promisify-all');
+_api.wait = require('./lib/wait');
+_api.PromiseResolver = require('./lib/PromiseResolver');
+_api.parallel = require('./lib/parallel');
 
 module.exports = _api;

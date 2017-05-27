@@ -24,6 +24,7 @@ API
  * `promisify` - Promisify a callback-based function
  * `promisifyAll` - Promisify a set of callback-based functions
  * `wait` - [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias
+ * `sleep` - Intercept the current function execution
  * `PromiseResolver` - Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
  * `parallel` - Executes multiple `PromiseResolver` in parallel with given task limit
  * `series` - Executes multiple `PromiseResolver` in series
@@ -120,6 +121,26 @@ const _fsMagic = require('fs-magic');
 })();
 ```
 
+async-magic::sleep
+------------------------------
+
+**Description:** Intercept the current function exection for a given time asynchronous (does not stop the global event loop!)
+
+**Syntax:** `p:Promise = sleep(time:int)`
+
+```js
+const _asyncMagic = require('async-magic');
+
+(async function(){
+    console('Hello..');
+
+    // stop function execution for 1s (asynchronous!)
+    await _asyncMagic.sleep(1000);
+
+    console.log('World');
+})();
+```
+
 async-magic::PromiseResolver
 ------------------------------
 
@@ -196,7 +217,7 @@ const _fsMagic = require('fs-magic');
 FAQ
 ------------------------------
 
-**What is the difference between named and anonymous functions ?**
+**What is the difference between named and anonymous functions ? (promisify)**
 
 Named functions contains its function-name as immutable `.name` attribute. This is especially useful during debugging, because the stacktrace will display the plain-text function name instead of "anonymous"
 

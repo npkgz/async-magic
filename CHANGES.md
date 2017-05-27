@@ -3,6 +3,7 @@
 * Added: `.PromiseResolver` to queue a promised function with given arguments for execution
 * Added: `.parallel` function to execute multiple `PromiseResolver` in parallel with given task limit
 * Added: `.series` function to execute multiple `PromiseResolver` in series
+* Added: `.sleep` function to intercept the current function execution by n miliseconds asynchronous
 
 ### 1.1.0 ###
 * Added: Mocha based Testcases

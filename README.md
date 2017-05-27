@@ -151,6 +151,7 @@ async-magic::PromiseResolver
 ```js
 const _asyncMagic = require('async-magic');
 const _fsMagic = require('fs-magic');
+const PromiseResolver = _asyncMagic.PromiseResolver;
 
 (async function(){
     // caches the function with given arguments
@@ -171,6 +172,7 @@ async-magic::parallel
 ```js
 const _asyncMagic = require('async-magic');
 const _fsMagic = require('fs-magic');
+const PromiseResolver = _asyncMagic.PromiseResolver;
 
 (async function(){
     // task list
@@ -198,6 +200,7 @@ async-magic::series
 ```js
 const _asyncMagic = require('async-magic');
 const _fsMagic = require('fs-magic');
+const PromiseResolver = _asyncMagic.PromiseResolver;
 
 (async function(){
     // task list

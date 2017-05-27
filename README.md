@@ -1,7 +1,7 @@
 async-magic
 =========================
 
-Promises FTW! A pure promised based, async toolbox for Node.js **>=7.6**.
+Promises FTW! A pure promised based, straight forward async toolbox for Node.js **>=7.6**.
 
 ```
 yarn add async-magic --save
@@ -11,12 +11,22 @@ Features
 ------------------------------
 
 * Convert callback based functions into promised based once (with named functions)
+* Advanced promised based control flows
 * Designed to run with the pure power of native `Promise`, `await` and `async function`
+* Run a set of promised functions in parallel with given number of maximum parallel tasks
+* Queue promised based function including arguments
 * Standalone, no external dependencies required
 * No backward compatibility layer
 
 API
 ------------------------------
+
+ * `promisify` - Promisify a callback-based function
+ * `promisifyAll` - Promisify a set of callback-based functions
+ * `wait` - [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias
+ * `PromiseResolver` - Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
+ * `parallel` - Executes multiple `PromiseResolver` in parallel with given task limit
+ * `series` - Executes multiple `PromiseResolver` in series
 
 
 async-magic::promisify
@@ -154,6 +164,32 @@ const _fsMagic = require('fs-magic');
     // resolves the promise with predefined arguments
     // limit the number of parallel executed promises to 100 (IO handle limitation)
     const stats = await _asyncMagic.parallel(tasks, 100);
+})();
+```
+
+async-magic::series
+------------------------------
+
+**Description:** Executes multiple `PromiseResolver` in series
+
+**Syntax:** `results:array = series(resolvers:array)`
+
+```js
+const _asyncMagic = require('async-magic');
+const _fsMagic = require('fs-magic');
+
+(async function(){
+    // task list
+    const tasks = [];
+    
+    // stat a large list of files 
+    tasks.push(PromiseResolver(_fsMagic.stat, 'file1.txt'));
+    tasks.push(PromiseResolver(_fsMagic.stat, 'file2.txt'));
+    ...
+    tasks.push(PromiseResolver(_fsMagic.stat, 'fileN.txt'));
+    
+    // resolves the promise with predefined arguments)
+    const stats = await _asyncMagic.series(tasks);
 })();
 ```
 

@@ -112,4 +112,28 @@ describe('parallel', function(){
         
         });
     });
+
+    it('should keep the result ordering equal to resolver input ordering', function(done){
+        // create wrapped promises
+        let resolvers = [];
+        let expectedResults = [];
+
+        // create 1k resolvers
+        for (let i=0;i<1000;i++){
+            resolvers.push(
+                _asyncMagic.PromiseResolver(myTest1, i)
+            );
+            expectedResults.push(i);
+        }
+
+        // resolve promises, wait for completition
+        _asyncMagic.parallel(resolvers, 19).then(function(results){
+            // compare with expected result
+            done(_assert.deepEqual(results, expectedResults));
+        
+        }).catch(function(e){
+            done(e);
+        
+        });
+    });
 });

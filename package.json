@@ -1,6 +1,6 @@
 {
   "name": "async-magic",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Andi Dittrich (https://andidittrich.de)",
   "license": "MIT",
   "homepage": "https://github.com/AndiDittrich/Node.async-magic",
@@ -9,12 +9,13 @@
   "description": "Promises FTW! A pure promised based, straight forward async library.",
   "keywords": [
     "promise",
+    "library",
     "async",
     "parallel",
     "series",
     "wait",
     "sleep",
-    "control-flow",    
+    "control-flow",
     "promisify",
     "es2017",
     "await"

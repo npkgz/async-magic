@@ -11,11 +11,11 @@ Features
 ------------------------------
 
 * Convert callback based functions into promised based once (with named functions)
-* Advanced promised based control flows
-* Designed to run with the pure power of native `Promise`, `await` and `async function`
+* Advanced promised based control flows (parallel, series)
 * Run a set of promised functions in parallel with given number of maximum parallel tasks
 * Queue promised based function including arguments
 * Standalone, no external dependencies required
+* Designed to run with the pure power of native `Promise`, `await` and `async function`
 * No backward compatibility layer
 
 API
@@ -100,68 +100,6 @@ const _fsPromised = _asyncMagic.promisifyAll(_fs, fsApi);
 })();
 ```
 
-wait
-------------------------------
-
-**Description:** A [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias - waits until each promise has been completed or a single error occurs
-
-**Syntax:** `p:Promise = wait(promises:Array)`
-
-```js
-const _asyncMagic = require('async-magic');
-const _fsMagic = require('fs-magic');
-
-// stat multiple files at once
-(async function(){
-    const stats = await _asyncMagic.wait([
-        _fsMagic.stat('file1.txt'),
-        _fsMagic.stat('file2.txt'),
-        _fsMagic.stat('file3.txt')
-    ]);
-})();
-```
-
-sleep
-------------------------------
-
-**Description:** Intercept the current function exection for a given time asynchronous (does not stop the global event loop!)
-
-**Syntax:** `p:Promise = sleep(time:int)`
-
-```js
-const _asyncMagic = require('async-magic');
-
-(async function(){
-    console('Hello..');
-
-    // stop function execution for 1s (asynchronous!)
-    await _asyncMagic.sleep(1000);
-
-    console.log('World');
-})();
-```
-
-PromiseResolver
-------------------------------
-
-**Description:** Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
-
-**Syntax:** `p:PromiseResolver = PromiseResolver(fn:function, [...args:any])`
-
-```js
-const _asyncMagic = require('async-magic');
-const _fsMagic = require('fs-magic');
-const PromiseResolver = _asyncMagic.PromiseResolver;
-
-(async function(){
-    // caches the function with given arguments
-    const task = PromiseResolver(_fsMagic.stat, 'file1.txt');
-    
-    // resolves the promise with predefined arguments
-    const stat = await task.resolve();
-})();
-```
-
 parallel
 ------------------------------
 
@@ -216,6 +154,69 @@ const PromiseResolver = _asyncMagic.PromiseResolver;
     const stats = await _asyncMagic.series(tasks);
 })();
 ```
+
+PromiseResolver
+------------------------------
+
+**Description:** Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
+
+**Syntax:** `p:PromiseResolver = PromiseResolver(fn:function, [...args:any])`
+
+```js
+const _asyncMagic = require('async-magic');
+const _fsMagic = require('fs-magic');
+const PromiseResolver = _asyncMagic.PromiseResolver;
+
+(async function(){
+    // caches the function with given arguments
+    const task = PromiseResolver(_fsMagic.stat, 'file1.txt');
+    
+    // resolves the promise with predefined arguments
+    const stat = await task.resolve();
+})();
+```
+
+wait
+------------------------------
+
+**Description:** A [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias - waits until each promise has been completed or a single error occurs
+
+**Syntax:** `p:Promise = wait(promises:Array)`
+
+```js
+const _asyncMagic = require('async-magic');
+const _fsMagic = require('fs-magic');
+
+// stat multiple files at once
+(async function(){
+    const stats = await _asyncMagic.wait([
+        _fsMagic.stat('file1.txt'),
+        _fsMagic.stat('file2.txt'),
+        _fsMagic.stat('file3.txt')
+    ]);
+})();
+```
+
+sleep
+------------------------------
+
+**Description:** Intercept the current function exection for a given time asynchronous (does not stop the global event loop!)
+
+**Syntax:** `p:Promise = sleep(time:int)`
+
+```js
+const _asyncMagic = require('async-magic');
+
+(async function(){
+    console('Hello..');
+
+    // stop function execution for 1s (asynchronous!)
+    await _asyncMagic.sleep(1000);
+
+    console.log('World');
+})();
+```
+
 
 FAQ
 ------------------------------

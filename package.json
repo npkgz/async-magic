@@ -6,7 +6,7 @@
   "homepage": "https://github.com/AndiDittrich/Node.async-magic",
   "bugs": "https://github.com/AndiDittrich/Node.async-magic/issues",
   "repository": "AndiDittrich/Node.async-magic",
-  "description": "Advanced Filesystem Utilities and promisified fs base.",
+  "description": "Promises FTW! A pure promised based, straight forward async library.",
   "keywords": [
     "promise",
     "async",

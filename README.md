@@ -1,7 +1,7 @@
 async-magic
 =========================
 
-Promises FTW! A pure promised based, straight forward async toolbox for Node.js **>=7.6**.
+Promises FTW! A pure promised based, straight forward async library for Node.js **>=7.6**.
 
 ```
 yarn add async-magic --save
@@ -21,16 +21,16 @@ Features
 API
 ------------------------------
 
- * `promisify` - Promisify a callback-based function
- * `promisifyAll` - Promisify a set of callback-based functions
- * `wait` - [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias
- * `sleep` - Intercept the current function execution
- * `PromiseResolver` - Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
- * `parallel` - Executes multiple `PromiseResolver` in parallel with given task limit
- * `series` - Executes multiple `PromiseResolver` in series
+ * [promisify](#promisify) - Promisify a callback-based function
+ * [promisifyAll](#promisifyall) - Promisify a set of callback-based functions
+ * [parallel](#parallel) - Executes multiple `PromiseResolver` in parallel with given task limit
+ * [series](#series) - Executes multiple `PromiseResolver` in series
+ * [PromiseResolver](#promiseresolver) - Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
+ * [wait](#wait) - [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias
+ * [sleep](#sleep) - Intercept the current function execution
 
 
-async-magic::promisify
+promisify
 ------------------------------
 
 **Description:** Promisify a callback-based function
@@ -63,7 +63,7 @@ const fsStat = _asyncMagic.promisify(_fs, 'stat');
 })();
 ```
 
-async-magic::promisifyAll
+promisifyAll
 ------------------------------
 
 **Description:** Promisify a set of callback-based functions
@@ -100,7 +100,7 @@ const _fsPromised = _asyncMagic.promisifyAll(_fs, fsApi);
 })();
 ```
 
-async-magic::wait
+wait
 ------------------------------
 
 **Description:** A [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias - waits until each promise has been completed or a single error occurs
@@ -121,7 +121,7 @@ const _fsMagic = require('fs-magic');
 })();
 ```
 
-async-magic::sleep
+sleep
 ------------------------------
 
 **Description:** Intercept the current function exection for a given time asynchronous (does not stop the global event loop!)
@@ -141,7 +141,7 @@ const _asyncMagic = require('async-magic');
 })();
 ```
 
-async-magic::PromiseResolver
+PromiseResolver
 ------------------------------
 
 **Description:** Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
@@ -162,7 +162,7 @@ const PromiseResolver = _asyncMagic.PromiseResolver;
 })();
 ```
 
-async-magic::parallel
+parallel
 ------------------------------
 
 **Description:** Executes multiple `PromiseResolver` in parallel with given task limit
@@ -190,7 +190,7 @@ const PromiseResolver = _asyncMagic.PromiseResolver;
 })();
 ```
 
-async-magic::series
+series
 ------------------------------
 
 **Description:** Executes multiple `PromiseResolver` in series

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AndiDittrich/Node.async-magic.svg?branch=master)](https://travis-ci.org/AndiDittrich/Node.async-magic)
+
 async-magic
 =========================
 

@@ -1,3 +1,9 @@
+### 1.3.0 ###
+* Added: ESlint check based on `eslint:recommended` and `eslint-config-aenondynamics`
+* Added: `sleep` testcase
+* Changed: Included ESlint in CI Tests
+* Fixed: Some varirable declarations (lint warnings)
+
 ### 1.2.1 ###
 * Changed: Doc Structure
 

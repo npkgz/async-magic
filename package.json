@@ -36,8 +36,8 @@
     "test": "eslint lib/*; mocha"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-aenondynamics": "^0.1.0",
-    "mocha": "^3.4.2"
+    "eslint": "^7.9.0",
+    "eslint-config-aenondynamics": "^0.2.0",
+    "mocha": "^8.1.3"
   }
 }

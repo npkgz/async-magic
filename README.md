@@ -30,7 +30,7 @@ API
  * [PromiseResolver](#promiseresolver) - Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
  * [wait](#wait) - [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias
  * [sleep](#sleep) - Intercept the current function execution
- * [Mutext](#mutext) - Mutex lock pattern
+ * [Mutex](#mutex) - asynchronous Mutex lock pattern
 
 
 promisify

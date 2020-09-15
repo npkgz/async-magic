@@ -38,12 +38,12 @@ describe('promisify', function(){
 
     it('should return a function with default name', function(){
         const testFn = _asyncMagic.promisify(_fs.stat);
-        _assert.equal(testFn.name, 'anonymous');
+        _assert.equal(testFn.name, 'stat');
     });
 
     it('should return a function with default name', function(){
         const testFn = _asyncMagic.promisify(_fs.stat, null);
-        _assert.equal(testFn.name, 'anonymous');
+        _assert.equal(testFn.name, 'stat');
     });
 
     it('should return a function with custom name', function(){

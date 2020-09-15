@@ -30,6 +30,7 @@ API
  * [PromiseResolver](#promiseresolver) - Utility function to cache a promised function including arguments for resolving. Required for advanced, promised based, control flows
  * [wait](#wait) - [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) alias
  * [sleep](#sleep) - Intercept the current function execution
+ * [Mutext](#mutext) - Mutex lock pattern
 
 
 promisify
@@ -216,6 +217,31 @@ const _asyncMagic = require('async-magic');
     await _asyncMagic.sleep(1000);
 
     console.log('World');
+})();
+```
+
+Mutex
+------------------------------
+
+**Description:** Mutex lock pattern for asynchronous operations
+
+**Syntax:** `p:Mutext = new Mutext()`
+
+```js
+const _asyncMagic = require('async-magic');
+
+(async function IOtask(){
+   // create Mutex
+    const mutex = new _asyncMagic.Mutex();
+
+    // acquire lock
+    await mutex.acquire();
+
+    // do something exclusively
+    await directIoOperation();
+
+    // unlock
+    mutex.release();
 })();
 ```
 

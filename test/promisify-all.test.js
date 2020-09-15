@@ -1,6 +1,7 @@
 const _assert = require('assert');
 const _asyncMagic = require('../async-magic');
 const _fs = require('fs');
+const _testclass = require('./testclass');
 
 // test functions
 const testFunctionSet = {
@@ -42,8 +43,9 @@ describe('promisify-all', function(){
         _assert.equal(isFunction, true);
     });
 
-    it('should return na array of functions of same length as given keys', function(){
+    it('should return an array of functions of same length as given keys', function(){
         const testFns = _asyncMagic.promisifyAll(testFunctionSet, testFunctionSetApi);
         _assert.equal(Object.keys(testFns).length, testFunctionSetApi.length);
     });
+
 });

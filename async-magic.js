@@ -1,5 +1,5 @@
 // exposed api functions
-let _api = {};
+const _api = {};
 
 // assign methods
 _api.promisify = require('./lib/promisify');
@@ -9,5 +9,6 @@ _api.PromiseResolver = require('./lib/PromiseResolver');
 _api.parallel = require('./lib/parallel');
 _api.series = require('./lib/series');
 _api.sleep = require('./lib/sleep');
+_api.Mutex = require('./lib/Mutex');
 
 module.exports = _api;

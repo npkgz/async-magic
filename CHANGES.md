@@ -1,3 +1,6 @@
+### 1.4.0 ###
+* Added: async Mutex lock
+
 ### 1.3.0 ###
 * Added: ESlint check based on `eslint:recommended` and `eslint-config-aenondynamics`
 * Added: `sleep` testcase

@@ -136,7 +136,9 @@ series
 
 **Description:** Executes multiple `PromiseResolver` in series
 
-**Syntax:** `results:array = series(resolvers:array)`
+**Syntax:** `results:array = series(resolvers:array, [failOnError:boolean=true])`
+
+In case `failOnError` is not set, the resultset will contain the error object thrown during execution. Otherwise the executor will abort directly if an error has been thrown.
 
 ```js
 const _asyncMagic = require('async-magic');

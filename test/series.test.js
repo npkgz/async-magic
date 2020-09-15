@@ -69,4 +69,48 @@ describe('series', function(){
         
         });
     });
+
+    it('should throw an exception if a task fails (hardfail)', function(done){
+
+        function throwError(){
+            throw new Error("failed");
+        }
+
+        // create wrapped promises
+        const resolvers = [
+            _asyncMagic.PromiseResolver(myTest1, 1),
+            _asyncMagic.PromiseResolver(throwError),
+            _asyncMagic.PromiseResolver(myTest1, 3),
+        ];
+
+        // resolve promises, wait for completition
+        _asyncMagic.series(resolvers).then(function(){
+            done(new Error('execution not failed'));
+        
+        }).catch(function(){
+            done();
+        });
+    });
+
+    it('should not throw an exception if a task fails (softfail)', function(done){
+
+        function throwError(){
+            throw new Error("failed");
+        }
+
+        // create wrapped promises
+        const resolvers = [
+            _asyncMagic.PromiseResolver(myTest1, 1),
+            _asyncMagic.PromiseResolver(throwError),
+            _asyncMagic.PromiseResolver(myTest1, 3),
+        ];
+
+        // resolve promises, wait for completition
+        _asyncMagic.series(resolvers, false).then(function(results){
+            done(_assert.equal(results[1].message, 'failed'));
+        
+        }).catch(function(e){
+            done(e);
+        });
+    });
 });

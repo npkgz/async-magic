@@ -1,3 +1,6 @@
+### 1.5.0 ###
+* Added: softfail option `failOnError` to `series` executor
+
 ### 1.4.0 ###
 * Added: async Mutex lock
 

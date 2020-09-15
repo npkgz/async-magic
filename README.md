@@ -225,7 +225,7 @@ Mutex
 
 **Description:** Mutex lock pattern for asynchronous operations
 
-**Syntax:** `p:Mutext = new Mutext()`
+**Syntax:** `p:Mutex = new Mutex()`
 
 ```js
 const _asyncMagic = require('async-magic');
